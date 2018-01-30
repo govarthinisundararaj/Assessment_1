@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task2" default="warfile" basedir="D:\third\task2_ant_compilation">
+<target name="warfile">
+	<war destfile="mytask.war" needxmlfile="false">
+	<fileset dir="D:\govarthini\Task2\WebContent"></fileset>
+	</war>
+	</target>
+<target name="copy">
+		<copy file="D:\third\task2_ant_compilation\mytask.war" tofile="D:\tomcat\apache-tomcat-8.5.24\webapps\mytask.war"/>
+</target>
+</project>

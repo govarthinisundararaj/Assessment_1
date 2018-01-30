@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="task1" default="compile" basedir="D:\third\task1_ant_compilation">
+	<path id="junit_jar">
+	<fileset dir="C:\Eclipse Neon RC2\eclipse-jee-neon-RC2-win32-x86_64\eclipse\plugins\org.junit_4.12.0.v201504281640">
+		<include name="**/*.jar" />
+	</fileset>
+</path>
+<target name="compile">
+<javac srcdir="D:\govarthini\Task1\src\test" destdir="D:\third\task1_ant_compilation">
+	<classpath>
+		           <path refid="junit_jar"/>
+		</classpath>
+	</javac>
+</target>
+	<target name="createjar">
+			       
+			        <jar destfile="D:\third\task1_ant_compilation\lib\app.jar" basedir="D:\third\task1_ant_compilation">
+			            <manifest>
+			                <attribute name="Main-Class" value="test.AllTests"/>
+			            </manifest>
+			        </jar>
+	</target>
+	<target name="run">
+			<junit>
+				<test name="test.AllTests" fork="true"/>
+		<classpath>
+		           <pathelement location="D:\third\task1_ant_compilation\lib\app.jar"/>
+		           <path refid="junit_jar"/>
+		</classpath>
+		
+				</junit>
+	</target>
+</project>

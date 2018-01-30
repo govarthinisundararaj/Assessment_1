@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fifthtask" default="run" basedir="D:\third\task3_ant_compilation">
+	<path id="selenium">
+			<fileset dir="D:\selenium">
+				<include name="client*.jar" />
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+<target name="compile">
+<javac srcdir="D:\govarthini\Task5\src\com" destdir="D:\third\task3_ant_compilation\com">
+	<classpath refid="selenium"/>
+	</javac>
+</target>
+
+<target name="createjar">
+		       
+		        <jar destfile="D:\third\task3_ant_compilation\lib\app.jar" basedir="D:\third\task3_ant_compilation\com">
+		            <manifest>
+		                <attribute name="Main-Class" value="com.LandingPage"/>
+		            </manifest>
+		        </jar>
+</target>
+<target name="run">
+		<java classname="com.LandingPage" fork="true">
+	<classpath>
+	           <pathelement location="D:\third\task3_ant_compilation\lib\app.jar"/>
+	           <path refid="selenium"/>
+	</classpath>
+			</java>
+</target>
+</project>
